@@ -31,10 +31,17 @@
     const replacement = image.cloneNode(false);
     replacement.removeAttribute("src");
     image.replaceWith(replacement);
-    requestAnimationFrame(() => { replacement.src = source; });
+    requestAnimationFrame(() => {
+      const url = new URL(source, location.href);
+      url.searchParams.set("garland-play", Date.now());
+      replacement.src = url.href;
+    });
   }
   addEventListener("load", restartMobileGarland, { once: true });
   addEventListener("pageshow", (event) => { if (event.persisted) restartMobileGarland(); });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") restartMobileGarland();
+  });
 
   const framePath = (data, index) => `${data.directory}/frame-${String(index + 1).padStart(3, "0")}.png`;
   function loadFrames(id) {
