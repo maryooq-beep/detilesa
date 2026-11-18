@@ -1,0 +1,24 @@
+[data-snow-surface]{position:relative}
+.resting-snow-layer{position:absolute;inset:0;z-index:15;overflow:visible;pointer-events:none}
+.resting-snow-layer[hidden]{display:none}
+.resting-snow-item{position:absolute;left:var(--snow-x);top:var(--snow-y);width:var(--snow-width);aspect-ratio:var(--snow-ratio);transform:rotate(var(--snow-rotation));transform-origin:center;opacity:var(--snow-opacity);pointer-events:none;will-change:auto}
+.resting-snow-item img{display:block;width:100%;height:100%;object-fit:fill;transform:none;pointer-events:none}
+.tree-stage>.animal-layer{z-index:10}
+.tree-stage>.resting-snow-layer{z-index:15}
+.bison-composition>.resting-snow-layer{z-index:4}
+.marten-art>img{position:relative;z-index:1}
+.marten-art>.resting-snow-layer{z-index:2}
+.torn-photo>.resting-snow-layer{z-index:2}
+
+.snow-calibration-mode .resting-snow-layer{pointer-events:none}
+.snow-calibration-mode .resting-snow-item{pointer-events:auto;cursor:grab;touch-action:none}
+.snow-calibration-mode .resting-snow-item:active{cursor:grabbing}
+.snow-calibration-mode .resting-snow-item.is-selected{outline:2px solid #178bcc;outline-offset:2px;background:rgba(23,139,204,.08)}
+.snow-calibration-mode [data-snow-surface].is-snow-surface-active{outline:1px dashed rgba(23,139,204,.75);outline-offset:3px}
+
+.snow-panel{position:fixed;z-index:10020;left:12px;top:12px;width:min(390px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;border:1px solid #465049;border-radius:8px;background:rgba(250,249,244,.98);box-shadow:0 7px 24px rgba(0,0,0,.2);color:#17221a;font:13px/1.25 Arial,sans-serif;overscroll-behavior:contain}
+.snow-panel__header{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:#53615a;color:#fff;cursor:move;touch-action:none}
+.snow-panel__header strong{font:400 21px/1 "Yanone Kaffeesatz",sans-serif}.snow-panel__header small{opacity:.78}
+.snow-panel__body{padding:10px}.snow-panel__row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px}.snow-panel label{display:grid;gap:3px}.snow-panel select,.snow-panel input{width:100%;height:32px;padding:3px 6px;border:1px solid #8d958e;border-radius:4px;background:#fff;color:#111;font:13px/1 Arial,sans-serif}.snow-panel input[type="color"]{padding:2px}.snow-panel input[type="checkbox"]{width:auto;height:auto}.snow-panel__visible{display:flex!important;grid-column:1/-1;align-items:center;gap:7px}.snow-panel__actions{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:9px}.snow-panel button{min-height:34px;border:1px solid #778179;border-radius:4px;background:#fff;color:#17221a;cursor:pointer}.snow-panel button[data-snow-add],.snow-panel button[data-snow-save]{border-color:#175d2c;background:#175d2c;color:#fff}.snow-panel__status{min-height:31px;margin:8px 0 0;color:#4b554e;font-size:12px}.snow-panel__help{margin:5px 0 0;color:#666;font-size:11px}
+.snow-library-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-height:148px;overflow:auto;padding:4px;border:1px solid #c2c8c3;border-radius:5px;background:#eef0eb}.snow-library-grid button{min-width:0;height:43px;padding:2px;background:#173f27;border:1px solid transparent}.snow-library-grid button.is-active{border:2px solid #cf153e;background:#224d32}.snow-library-grid img{display:block;width:100%;height:100%;object-fit:contain}
+@media(max-width:480px){.snow-panel{left:8px;top:8px;width:calc(100vw - 16px);max-height:45vh}.snow-panel__body{padding:8px}.snow-panel__row{gap:5px;margin-bottom:5px}.snow-panel select,.snow-panel input{height:30px}}

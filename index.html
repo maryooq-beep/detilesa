@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Голос Земли — помогаем лесу расти и восстанавливаться.">
+    <title>Дети леса</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png?v=20261117-1">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png?v=20261117-1">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48.png?v=20261117-1">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=20261117-1">
+    <link rel="stylesheet" href="styles.css?v=bison-mobile-height-20261117-1">
+    <link rel="stylesheet" href="resting-snow.css?v=urgent-20261117-2">
+    <link rel="stylesheet" href="animations.css?v=marten-shimmer-20261117-1">
+    <script src="animal-positions.js" defer></script>
+    <script src="bison-position-shared.js" defer></script>
+    <script src="resting-snow-library.js" defer></script>
+    <script src="resting-snow-config-2.js?v=approved-20261117-1754" defer></script>
+    <script src="garland-position.js?v=approved-20261117" defer></script>
+    <script src="bison-atmosphere-config.js" defer></script>
+    <script src="video-display-config.js" defer></script>
+    <script src="animal-animation-config.js" defer></script>
+    <script src="forest-background-config.js?v=approved-20261117" defer></script>
+    <script src="forest-background.js" defer></script>
+    <script src="script.js?v=urgent-20261117-2" defer></script>
+    <script src="resting-snow.js?v=urgent-20261117-2" defer></script>
+    <script src="bison-atmosphere.js?v=urgent-20261117-2" defer></script>
+    <script src="animations.js?v=marten-shimmer-20261117-1" defer></script>
+    <script type="module" src="global-snowfall.js?v=global-snow-20261117-1"></script>
+  </head>
+  <body>
+    <div class="forest-background" data-forest-background aria-hidden="true">
+      <img src="references/front.png" alt="">
+    </div>
+    <header class="site-header">
+      <a class="wordmark" href="https://goloszemli.ru" target="_blank" rel="noopener noreferrer" aria-label="Голос Земли — открыть сайт в новой вкладке"><img src="references/logo.png" alt="Голос Земли"></a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#about">О проекте</a>
+        <a href="#year">Год леса</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="button button--small" href="#donate">Поддержать</a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="campaign-mark">
+          <img class="campaign-sprig campaign-sprig--left" src="references/%D0%B2%D0%B5%D1%82%D0%BA%D0%B0.png" alt="">
+          <span><span class="poiret-number">2027</span> · ДЕТИ ЛЕСА</span>
+          <img class="campaign-sprig campaign-sprig--right" src="references/%D0%B2%D0%B5%D1%82%D0%BA%D0%B0.png" alt="">
+        </div>
+        <h1 id="hero-title">Подарите животным лес</h1>
+
+        <div class="hero-grid">
+          <div class="tree-column">
+          <div class="tree-stage" data-snow-surface="tree" aria-label="Новогодняя ёлка с лесными животными">
+            <img class="tree-base" src="references/tree%20with%20no%20background%20no%20animals%20.png" alt="Нарядная лесная ёлка">
+            <div class="garland-layer" data-garland-layer aria-hidden="true">
+              <img class="garland-motion" src="references/animations/garland-glow-transparent.webp" alt="">
+              <img class="garland-static" src="assets/ambient/garland-glow-static.png" alt="">
+            </div>
+            <div class="animal-layer">
+              <div class="animal-node animal--tit" data-animal="tit" role="button" tabindex="0" aria-label="Серая гаичка: анимация; открыть видео"><img class="animal-rest" src="assets/animals/tit-rest.png" alt=""><img class="animal-animation-frame" alt=""><span class="animal-hitbox"></span></div>
+              <div class="animal-node animal--fox" data-animal="fox" role="button" tabindex="0" aria-label="Лиса: анимация; открыть видео"><img class="animal-rest" src="assets/animals/fox-rest.png" alt=""><img class="animal-animation-frame" alt=""><span class="animal-hitbox"></span></div>
+              <div class="animal-node animal--heron" data-animal="heron" role="button" tabindex="0" aria-label="Цапля: анимация; открыть видео"><img class="animal-rest" src="assets/animals/heron-rest.png" alt=""><img class="animal-animation-frame" alt=""><span class="animal-hitbox"></span></div>
+              <div class="animal-node animal--moose" data-animal="moose" role="button" tabindex="0" aria-label="Лось: анимация; открыть видео"><img class="animal-rest" src="assets/animals/moose-rest.png" alt=""><img class="animal-animation-frame" alt=""><span class="animal-hitbox"></span></div>
+              <div class="animal-node animal--roe" data-animal="roe" role="button" tabindex="0" aria-label="Косуля: анимация; открыть видео"><img class="animal-rest" src="assets/animals/roe-rest.png" alt=""><img class="animal-animation-frame" alt=""><span class="animal-hitbox"></span></div>
+            </div>
+          </div>
+          <p class="tree-instruction"><span>Нажми, чтобы поймать зверюшку</span><span class="tree-instruction__play" aria-hidden="true"></span></p>
+          </div>
+
+          <aside class="donation" id="donate" aria-labelledby="donation-title">
+            <h2 id="donation-title">Подарите лесу<br>заботу на весь год</h2>
+            <p>Гости наших фотоловушек уже здесь. Помогите «Голосу Земли» выращивать и защищать их будущий лес в «Угре».</p>
+            <form class="donation-form" action="#" data-donation-form>
+              <fieldset class="segmented" aria-label="Периодичность пожертвования">
+                <button class="is-selected" type="button" data-choice data-period="monthly" aria-pressed="true">Ежемесячно</button>
+                <button type="button" data-choice data-period="once" aria-pressed="false">Один раз</button>
+              </fieldset>
+              <fieldset class="amounts" aria-label="Сумма пожертвования">
+                <button type="button" data-choice><span class="poiret-number">300</span>&nbsp;₽</button>
+                <button class="is-selected" type="button" data-choice><span class="poiret-number">500</span>&nbsp;₽</button>
+                <button type="button" data-choice><span class="poiret-number">1 000</span>&nbsp;₽</button>
+              </fieldset>
+              <label class="visually-hidden" for="amount">Другая сумма</label>
+              <input id="amount" name="amount" inputmode="numeric" placeholder="Другая сумма">
+              <label class="visually-hidden" for="email">Ваш email</label>
+              <input id="email" name="email" type="email" placeholder="Ваш email">
+              <button class="button button--wide" type="submit" data-submit-label>Помогать каждый месяц</button>
+              <p class="form-note">На питомник, посадки и защиту леса</p>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <section class="impact section-shell ruled" id="about" aria-labelledby="impact-title">
+        <h2 id="impact-title">Лес уже растёт. Вместе с вами.</h2>
+        <div class="impact-grid">
+          <article><strong>С <span class="poiret-number">2019</span> года</strong><span>восстанавливаем лес<br>в «Угре»</span></article>
+          <article><strong><span class="poiret-number">2 088</span> деревьев</strong><span>посадили за один день</span></article>
+          <article><strong><span class="poiret-number">333</span> человека</strong><span>вышли на осеннюю<br>посадку</span></article>
+        </div>
+      </section>
+
+      <section class="seasons section-shell ruled" id="year" aria-labelledby="seasons-title">
+        <h2 id="seasons-title">Лес — это забота круглый год</h2>
+        <p class="section-lead">Ваше регулярное пожертвование помогает планировать эту работу.</p>
+        <div class="season-grid">
+          <article class="season-card">
+            <div class="torn-photo" data-snow-surface="season-winter"><img src="assets/seasonal/winter.jpg" alt="Жёлуди в заснеженных перчатках"></div>
+            <h3>Зима</h3><p>Саженцы зимуют на грядках. Мы рассказываем, как помочь лесу.</p>
+          </article>
+          <article class="season-card">
+            <div class="torn-photo" data-snow-surface="season-spring"><img src="assets/seasonal/spring.jpg" alt="Подготовка саженцев к пересадке"></div>
+            <h3>Весна</h3><p>Готовим саженцы к пересадке.</p>
+          </article>
+          <article class="season-card">
+            <div class="torn-photo" data-snow-surface="season-summer"><img src="assets/seasonal/summer.jpg" alt="Работа в лесном питомнике"></div>
+            <h3>Лето</h3><p>Выращиваем саженцы в питомнике.</p>
+          </article>
+          <article class="season-card">
+            <div class="torn-photo" data-snow-surface="season-autumn"><img src="assets/seasonal/autumn.jpg" alt="Мешки с желудями для нового леса"></div>
+            <h3>Осень</h3><p>Сажаем<br>новый лес.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="spending section-shell ruled" aria-labelledby="spending-title">
+        <h2 id="spending-title">На что пойдёт ваше пожертвование</h2>
+        <div class="spending-grid">
+          <div class="marten-art" data-snow-surface="marten" data-marten-interactive role="button" tabindex="0" aria-label="Куница: световой отблеск; Enter — открыть видео">
+            <div class="marten-static-group">
+              <img class="marten-composite-image" src="references/%D0%BA%D1%83%D0%BD%D0%B8%D1%86%D0%B0%20%D0%BD%D0%B0%20%D0%B2%D0%B5%D1%82%D0%BA%D0%B5.PNG" alt="Еловая ветка и куница в ёлочном шаре">
+              <div class="marten-snow-host" data-snow-layer-host="marten:stationary-branch"></div>
+              <div class="marten-snow-host" data-snow-layer-host="marten:marten-ornament"></div>
+              <span class="marten-glass-effect" aria-hidden="true"><i></i><i></i><i></i></span>
+            </div>
+          </div>
+          <div class="spending-list">
+            <article><div><h3>Питомник и саженцы</h3><p>Выращиваем крепкие местные деревья.</p></div><span aria-hidden="true">→</span></article>
+            <article><div><h3>Посадки и уход</h3><p>Сажаем лес и помогаем молодым деревьям прижиться.</p></div><span aria-hidden="true">→</span></article>
+            <article><div><h3>Защита молодого леса</h3><p>Снижаем риски пожаров и других угроз.</p></div><span aria-hidden="true">→</span></article>
+          </div>
+        </div>
+        <div class="resource-links">
+          <a href="#"><img src="assets/icons/report.svg" alt=""> Репортаж с посадок</a>
+          <a href="#"><img src="assets/icons/leaf.svg" alt=""> Наш партнёр — национальный парк «Угра»</a>
+        </div>
+      </section>
+
+      <section class="bison" aria-labelledby="bison-title">
+        <div class="bison-atmosphere" aria-hidden="true">
+          <img class="bison-atmosphere__green" data-bison-atmosphere="green" src="references/%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BD%D0%B5%D0%B3%20%D0%BD%D0%B0%20%D1%84%D0%BE%D0%BD%D0%B5%20%D0%B7%D1%83%D0%B1%D1%80%D0%B0.png" alt="">
+          <img class="bison-atmosphere__white" data-bison-atmosphere="white" src="references/%D1%81%D0%BD%D0%B5%D0%B3%20%D0%BD%D0%B0%20%D1%84%D0%BE%D0%BD%D0%B5%20%D0%B7%D1%83%D0%B1%D1%80%D0%B0.png" alt="">
+        </div>
+        <div class="section-shell bison-inner">
+          <div class="bison-copy">
+            <h2 id="bison-title">Зубру оставили<br>место на ёлке.</h2>
+            <p>Помогите вырастить лес,<br>в который он придёт.</p>
+            <a class="button button--bison" href="#donate">ПОДДЕРЖАТЬ</a>
+          </div>
+          <div class="bison-art" aria-label="Место для зубра на ёлке">
+            <div class="bison-composition" data-snow-surface="bison">
+              <img class="bison-ornament" data-calibration-target="bison" src="references/%D0%B7%D1%83%D0%B1%D1%80.png" alt="Ёлочный шар с силуэтом зубра и знаком вопроса">
+              <img class="bison-branch" src="references/%D1%88%D0%B0%D1%80%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D1%83%D0%B1%D1%80%D0%B0.PNG" alt="Еловая ветка с красным бантом">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell" id="contacts">
+      <a class="footer-brand" href="https://goloszemli.ru" target="_blank" rel="noopener noreferrer" aria-label="Голос Земли — открыть сайт в новой вкладке"><img src="references/logo.png" alt="Голос Земли"></a>
+      <span class="footer-divider" aria-hidden="true"></span>
+      <div class="socials" aria-label="Социальные сети">
+        <a class="social-icon" href="https://t.me/goloszemli" target="_blank" rel="noopener noreferrer" aria-label="Telegram — открыть в новой вкладке"><img src="assets/icons/telegram.svg" alt=""></a>
+      </div>
+      <nav aria-label="Навигация в подвале"><a href="#about">О проекте</a><a href="#year">Год леса</a><a href="#contacts">Контакты</a></nav>
+    </footer>
+  </body>
+</html>
