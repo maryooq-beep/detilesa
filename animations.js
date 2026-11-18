@@ -2,6 +2,7 @@
   const animationConfig = window.ANIMAL_ANIMATION_CONFIG || {};
   const videoConfig = window.VIDEO_DISPLAY_CONFIG || { focalPoints: {} };
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const mobileInteraction = window.matchMedia("(hover: none), (pointer: coarse)");
   const calibrating = new URLSearchParams(location.search).get("calibrate") === "1";
   const frameCache = new Map();
   const playback = new Map();
@@ -21,6 +22,19 @@
     node.style.setProperty("--garland-intensity", config.intensity || 1);
   };
   window.applyGarlandPositionConfig();
+
+  function restartMobileGarland() {
+    if (!mobileInteraction.matches || reducedMotion.matches) return;
+    const image = document.querySelector(".garland-motion");
+    const source = image?.getAttribute("src");
+    if (!image || !source) return;
+    const replacement = image.cloneNode(false);
+    replacement.removeAttribute("src");
+    image.replaceWith(replacement);
+    requestAnimationFrame(() => { replacement.src = source; });
+  }
+  addEventListener("load", restartMobileGarland, { once: true });
+  addEventListener("pageshow", (event) => { if (event.persisted) restartMobileGarland(); });
 
   const framePath = (data, index) => `${data.directory}/frame-${String(index + 1).padStart(3, "0")}.png`;
   function loadFrames(id) {
@@ -63,6 +77,17 @@
       console.error(error);
       node.classList.remove("is-loading", "is-playing");
       state.playing = false;
+    }
+  }
+
+  async function startMobileAnimalSequence() {
+    if (!mobileInteraction.matches || reducedMotion.matches || calibrating) return;
+    const order = ["tit", "heron", "fox", "roe", "moose"];
+    try {
+      await Promise.all(order.map(loadFrames));
+      order.forEach((id, index) => setTimeout(() => playAnimal(id), index * 500));
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -134,6 +159,8 @@
 
   if (calibrating) return;
 
+  addEventListener("load", startMobileAnimalSequence, { once: true });
+
   document.querySelectorAll("[data-animal]").forEach((node) => {
     const id = node.dataset.animal;
     node.addEventListener("pointerenter", (event) => { if (event.pointerType === "mouse") playAnimal(id); });
@@ -141,14 +168,7 @@
       if (event.pointerType === "mouse") return;
       event.preventDefault();
       lastTouchAt = Date.now();
-      const pending = touchTimers.get(id);
-      if (pending) {
-        clearTimeout(pending);
-        touchTimers.delete(id);
-        openVideo(id, node);
-      } else {
-        touchTimers.set(id, setTimeout(() => { touchTimers.delete(id); playAnimal(id); }, 280));
-      }
+      openVideo(id, node);
     });
     node.addEventListener("click", () => { if (Date.now() - lastTouchAt > 500) openVideo(id, node); });
     node.addEventListener("keydown", (event) => {
@@ -173,4 +193,22 @@
     if (event.key === " ") { event.preventDefault(); shimmerMarten(); }
     if (event.key === "Enter") { event.preventDefault(); openVideo("marten", marten); }
   });
+
+  const bison = document.querySelector(".bison-art");
+  if (mobileInteraction.matches && bison) {
+    let shimmerPlayed = false;
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (!shimmerPlayed && entry?.isIntersecting && entry.intersectionRatio >= .45) {
+        shimmerPlayed = true;
+        bison.querySelector(".bison-composition")?.classList.add("is-shimmering");
+        observer.disconnect();
+      }
+    }, { threshold: [.45] });
+    observer.observe(bison);
+    bison.addEventListener("pointerup", (event) => {
+      if (event.pointerType === "mouse") return;
+      openVideo("bison", bison);
+    });
+  }
 })();

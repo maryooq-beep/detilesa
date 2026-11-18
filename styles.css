@@ -33,11 +33,11 @@
 /* Approved raster identity: intrinsic proportions, no cropping or distortion. */
 .wordmark,.footer-brand{display:flex;align-items:center;min-width:0;line-height:0;letter-spacing:0}
 .wordmark img,.footer-brand img{display:block;width:auto;height:auto;object-fit:contain;object-position:left center}
-.wordmark img{max-width:clamp(145px,17vw,220px);max-height:74px}
-.footer-brand img{max-width:clamp(155px,15vw,210px);max-height:70px}
+.wordmark img{max-width:clamp(167px,19.55vw,253px);max-height:85px}
+.footer-brand img{max-width:clamp(178px,17.25vw,242px);max-height:81px}
 .poiret-number{font-family:var(--font-poiret);font-style:normal;font-weight:400;font-synthesis:none;letter-spacing:normal;vertical-align:baseline}.impact-grid strong .poiret-number{display:inline;padding:0;font-size:inherit;line-height:inherit}.amounts button .poiret-number{font-size:inherit;line-height:inherit}.donation-form #amount{font-family:var(--font-poiret);font-style:normal;font-weight:400;font-synthesis:none;letter-spacing:normal}.donation-form #amount::placeholder{font-family:"Yanone Kaffeesatz Static",sans-serif;font-weight:400;opacity:1}
-@media(max-width:620px){.wordmark img{max-width:145px;max-height:49px}.footer-brand img{max-width:155px;max-height:52px}}
-@media(max-width:375px){.wordmark img{max-width:135px;max-height:45px}.footer-brand img{max-width:150px;max-height:50px}}
-@media(max-width:320px){.wordmark img{max-width:128px;max-height:43px}.footer-brand img{max-width:145px;max-height:48px}}
+@media(max-width:620px){.wordmark img{max-width:167px;max-height:56px}.footer-brand img{max-width:178px;max-height:60px}}
+@media(max-width:375px){.wordmark img{max-width:155px;max-height:52px}.footer-brand img{max-width:173px;max-height:58px}}
+@media(max-width:320px){.wordmark img{max-width:147px;max-height:49px}.footer-brand img{max-width:167px;max-height:55px}}
 @media(max-width:767px){.bison-inner{min-height:553px}.bison-art{height:320px;margin-bottom:-57px}.bison-composition{transform:translateY(-57px)}}
 @media(max-width:440px){.bison-inner{min-height:clamp(509px,calc(253px + 80vw),605px)}.bison-art{height:clamp(276px,calc(20px + 80vw),372px)}.bison-composition{transform:translate(4%,calc(50% - 57px)) scale(1.25);transform-origin:top left}}
